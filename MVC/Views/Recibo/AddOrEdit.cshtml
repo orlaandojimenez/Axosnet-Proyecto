@@ -1,0 +1,47 @@
+﻿@model MVC.Models.mvcReciboModel
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.ReciboID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Proveedor)
+            @Html.EditorFor(model => model.Proveedor)
+            @Html.ValidationMessageFor(model => model.Proveedor)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Monto)
+            @Html.EditorFor(model => model.Monto, new { htmlAttributes = new { @type = "number" } })
+            @Html.ValidationMessageFor(model => model.Monto)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Moneda)
+            @Html.EditorFor(model => model.Moneda)
+            @Html.ValidationMessageFor(model => model.Moneda)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha)
+            @Html.EditorFor(model => model.Fecha)
+            @Html.ValidationMessageFor(model => model.Fecha)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comentario)
+            @Html.EditorFor(model => model.Comentario)
+            @Html.ValidationMessageFor(model => model.Comentario)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn button" />
+            <input type="reset" value="Limpiar" class="btn button" />
+        </div>
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+    }
+

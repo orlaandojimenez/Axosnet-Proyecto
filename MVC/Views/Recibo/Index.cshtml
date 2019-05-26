@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC.Models.mvcReciboModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<p>
+    <a href="@Url.Action("AddOrEdit","Recibo")" class="btn btn-default"> Crear nuevo</a>
+</p>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr> 
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moneda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comentario)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moneda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentario)
+        </td>
+        <td>
+            <a href="@Url.Action("AddOrEdit","Recibo", new { id = item.ReciboID })" class="btn btn-default">Editar</a>
+            <a href="@Url.Action("Delete","Recibo", new { id = item.ReciboID })" class="btn btn-default">Eliminar</a>
+        </td>
+    </tr>
+}
+
+</table>

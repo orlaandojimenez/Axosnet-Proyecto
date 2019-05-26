@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoAXIOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Recibo">
+    <Key>
+      <PropertyRef Name="ReciboID" />
+    </Key>
+    <Property Name="ReciboID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Proveedor" Type="nvarchar" MaxLength="200" />
+    <Property Name="Monto" Type="float" />
+    <Property Name="Moneda" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Comentario" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityContainer Name="ProyectoAXIOSModelStoreContainer">
+    <EntitySet Name="Recibo" EntityType="Self.Recibo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
